@@ -42,8 +42,43 @@ class FuncionarioForm(forms.ModelForm):
             'class': 'form-control', 
             'placeholder': 'Informe o Salário',
         }),          
+    )
+
+
+    sexo = forms.ChoiceField(
+        label='Sexo',
+        choices=Funcionario.SEXO_CHOICES,
+        widget=forms.Select(attrs={
+            'class': 'form-select',
+        }),
+    )
+
+    data_nascimento = forms.DateField(
+        label='Data de Nascimento',
+        widget=forms.DateInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Informe a data de nascimento',
+        }),
+    )
+
+    cpf = forms.CharField(        
+        label='CPF', 
+        max_length=11,
+        required=True,   
+        widget=forms.TextInput(attrs={
+            'class': 'form-control', 
+            'placeholder': 'Informe o CPF',
+        }),          
+    )
+
+    email = forms.EmailField(
+        label='E-mail',
+        widget=forms.EmailInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Informe o e-mail',
+        }),
     ) 
 
     class Meta:
         model = Funcionario
-        fields = ('nome', 'cargo', 'idade', 'salario')
+        fields = '__all__'

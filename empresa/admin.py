@@ -5,7 +5,7 @@ from empresa.models import Funcionario
 # Register your models here.
 
 class FuncionarioAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'cargo', 'idade', 'salario')
+    list_display = ('nome', 'cargo', 'idade', 'salario', 'sexo', 'data_nascimento', 'cpf', 'email')
 
 
 
