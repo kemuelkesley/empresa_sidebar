@@ -40,7 +40,7 @@ class FuncionarioForm(forms.ModelForm):
         required=True,   
         widget=forms.TextInput(attrs={
             'class': 'form-control', 
-            'placeholder': 'Informe o Salário',
+            'placeholder': 'R$ 0,00',
         }),          
     )
 
@@ -57,7 +57,7 @@ class FuncionarioForm(forms.ModelForm):
         label='Data de Nascimento',
         widget=forms.DateInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Informe a data de nascimento',
+            'placeholder': '00/00/0000',
         }),
     )
 
@@ -78,6 +78,16 @@ class FuncionarioForm(forms.ModelForm):
             'placeholder': 'Informe o e-mail',
         }),
     ) 
+
+    telefone = forms.CharField(
+        label='Telefone',
+        max_length=11,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': '(00) 0 0000-0000)',
+        }),
+    )
 
     class Meta:
         model = Funcionario

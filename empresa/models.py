@@ -5,9 +5,10 @@ from django.db import models
 class Funcionario(models.Model):
 
     SEXO_CHOICES = (
-        ('E', 'Escolha...'),
+        ('E', '---------'),
         ('M', 'Masculino'),
         ('F', 'Feminino'),
+        ('O', 'Outros'),
     )
 
     nome = models.CharField(max_length=100)
