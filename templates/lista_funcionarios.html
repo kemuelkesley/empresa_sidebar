@@ -29,10 +29,10 @@
                                 <tr>
                                     <th>Nome</th>
                                     <th>Cargo</th>
-                                    <th>Idade</th>
+                                    <th>Data de Nascimento</th>
+                                    <th>Telefone</th>
                                     <th>Salario</th>
                                     <th>Sexo</th>
-                                    <th>Data de Nascimento</th>
                                     <th>CPF</th>
                                     <th>E-mail</th>
                                     <th>Ações</th>  
@@ -42,13 +42,13 @@
                                 <tr>
                                     <th>Nome</th>
                                     <th>Cargo</th>
-                                    <th>Idade</th>
-                                    <th>Salario</th> 
-                                    <th>Sexo</th>
                                     <th>Data de Nascimento</th>
+                                    <th>Telefone</th>
+                                    <th>Salario</th>
+                                    <th>Sexo</th>
                                     <th>CPF</th>
-                                    <th>E-mail</th>                                          
-                                    <th>Ações</th>
+                                    <th>E-mail</th>
+                                    <th>Ações</th>  
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -56,10 +56,10 @@
                                 <tr>
                                     <td>{{ funcionario.nome }}</td>
                                     <td>{{ funcionario.cargo }}</td>
-                                    <td>{{ funcionario.idade }}</td>                                            
+                                    <td>{{ funcionario.data_nascimento }}</td>                                            
+                                    <th>{{ funcionario.telefone }}</th>
                                     <td>R$ {{ funcionario.salario }}</td>
                                     <th>{{ funcionario.sexo }}</th>
-                                    <th>{{ funcionario.data_nascimento }}</th>
                                     <th>{{ funcionario.cpf }}</th>
                                     <th>{{ funcionario.email }}</th>
                                     <td>

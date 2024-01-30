@@ -19,6 +19,7 @@ class Funcionario(models.Model):
     data_nascimento = models.DateField()
     cpf = models.CharField(max_length=11)
     email = models.EmailField()
+    telefone = models.CharField(max_length=11, null=True, blank=True)
     
 
     def __str__(self):
