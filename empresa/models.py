@@ -2,6 +2,15 @@ from django.db import models
 
 # Create your models here.
 
+class Cargo(models.Model):
+    nome = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.nome
+
+
+
+
 class Funcionario(models.Model):
 
     SEXO_CHOICES = (
@@ -12,8 +21,7 @@ class Funcionario(models.Model):
     )
 
     nome = models.CharField(max_length=100)
-    cargo = models.CharField(max_length=100)
-    idade = models.IntegerField()
+    cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE)   
     salario = models.DecimalField(max_digits=10, decimal_places=2)
     sexo = models.CharField(max_length=1, choices=SEXO_CHOICES)
     data_nascimento = models.DateField()

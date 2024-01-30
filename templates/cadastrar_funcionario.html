@@ -17,59 +17,58 @@
                         Cadastrar Funcionario
                     </div>
                     <div class="card-body">
-                        <form class=" mx-auto my-4" action="" method="post">
-                        {% csrf_token %}
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="Nome">Nome:</label>
-                                    {{ form.nome }}
+                        <form class=" mx-auto my-4" action="" method="POST">
+                            {% csrf_token %}
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="Nome">Nome:</label>
+                                        {{ form.nome }}
+                                    </div>
+                    
+                                    <div class="mb-3">
+                                        <label for="cargo">Cargo:</label>
+                                        {{ form.cargo }}
+                                    </div>
                                 </div>
-                
-                                <div class="mb-3">
-                                    <label for="cargo">Cargo:</label>
-                                    {{ form.cargo }}
+                    
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="cargo">Salário:</label>
+                                        {{ form.salario }}
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="cargo">Sexo:</label>
+                                        {{ form.sexo }}
+                                    </div>
                                 </div>
-                            </div>
-                
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="cargo">Salário:</label>
-                                    {{ form.salario }}
-                                </div>
-                                <div class="mb-3">
-                                    <label for="cargo">Sexo:</label>
-                                    {{ form.sexo }}
-                                </div>
-                            </div>
 
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="cargo">Data de Nascimento:</label>
-                                    {{ form.data_nascimento }}
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="cargo">Data de Nascimento:</label>
+                                        {{ form.data_nascimento }}
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cargo">CPF:</label>
+                                        {{ form.cpf }}
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="cargo">CPF:</label>
-                                    {{ form.cpf }}
-                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="cargo">E-mail:</label>
+                                        {{ form.email }}
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cargo">Telefone:</label>
+                                        {{ form.telefone }}
+                                    </div>
+                                </div>  
                             </div>
-
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label for="cargo">E-mail:</label>
-                                    {{ form.email }}
-                                </div>
-                                <div class="mb-3">
-                                    <label for="cargo">Telefone:</label>
-                                    {{ form.telefone }}
-                                </div>
-                            </div>  
-                        </div>
-                        
-                
-
-                        <input type="submit" class="btn btn-primary" value="Enviar">
+                            
+                            <input type="submit" class="btn btn-primary" value="Enviar">
                         </form>
                     </div>
                 </div>

@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from empresa.models import Funcionario
 from empresa.forms import FuncionarioForm
+
+from django.contrib import messages
 
 # Create your views here.
 
@@ -14,8 +16,13 @@ def cadastrar_funcionario(request):
     if request.method == 'POST':
         form = FuncionarioForm(request.POST)
         if form.is_valid():
-            form.save()
-        return render(request, 'index.html')
+            form.save()           
+            messages.success(request, 'Funcionário cadastrado com sucesso.')
+            # return render(request, 'index.html')
+            return redirect('index')
+        else:
+          messages.error(request, 'Erro ao cadastrar funcionário. Verifique os campos.')
+    
     else:
         form = FuncionarioForm()
 
