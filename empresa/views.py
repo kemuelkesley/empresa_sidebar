@@ -32,3 +32,17 @@ def cadastrar_funcionario(request):
 def lista_funcionarios(request):
     funcionarios = Funcionario.objects.all()
     return render(request, 'lista_funcionarios.html', {'funcionarios': funcionarios})
+
+
+def editar_funcionario(request, id):
+    funcionario = Funcionario.objects.get(id=id)
+    form = FuncionarioForm(request.POST or None, instance=funcionario)
+
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Funcionário atualizado com sucesso.')
+        return redirect('lista_funcionarios')
+    else:
+        messages.error(request, 'Erro ao atualizar funcionário. Verifique os campos.')
+
+    return render(request, 'editar_funcionario.html', {'form': form, 'funcionario': funcionario})

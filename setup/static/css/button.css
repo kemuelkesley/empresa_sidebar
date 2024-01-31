@@ -1,0 +1,18 @@
+/* Estilo para o botão */
+.btn_test {
+    width: 20%;
+    height: 40px;
+    background-color: #3498db; /* Cor de fundo do botão (pode ajustar para combinar com seu formulário) */
+    color: #fff; /* Cor do texto no botão */
+    border: none; /* Remove a borda padrão */
+    border-radius: 5px; /* Borda arredondada */
+    cursor: pointer; /* Mostra a mão ao passar o mouse */
+
+    /* Adiciona transição suave para o efeito hover */
+    transition: background-color 0.3s;
+}
+
+/* Estilo de hover para o botão */
+.btn_test:hover {
+    background-color: #2980b9; /* Cor de fundo alterada no hover (pode ajustar para combinar) */
+}

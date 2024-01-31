@@ -75,7 +75,7 @@ class FuncionarioForm(forms.ModelForm):
         required=True,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': '(00) 0 0000-0000)',
+            'placeholder': '(00) 0 0000-0000',
         }),
     )
 

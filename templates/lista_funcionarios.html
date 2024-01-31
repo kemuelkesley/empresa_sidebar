@@ -62,9 +62,12 @@
                                     <th>{{ funcionario.sexo }}</th>
                                     <th>{{ funcionario.cpf }}</th>
                                     <th>{{ funcionario.email }}</th>
-                                    <td>
-                                        <input class="btn btn-primary" type="button" value="Editar">
-                                    </td>
+                                    {% if funcionario.id %}
+                                        <td>
+                                            <!-- <input class="btn btn-primary" type="button" value="Editar"> -->
+                                            <a href="{% url 'editar_funcionario' id=funcionario.pk %}" class="btn btn-primary">Editar</a>
+                                        </td>
+                                    {% endif %}
                                 </tr>
                                 {% endfor %}
                             </tbody>
