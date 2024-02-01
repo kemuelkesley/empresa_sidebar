@@ -1,6 +1,5 @@
 from django import forms
-from empresa.models import Funcionario, Cargo
-
+from empresa.models import Funcionario, Cargo, Genero
 
 class FuncionarioForm(forms.ModelForm):
 
@@ -34,9 +33,11 @@ class FuncionarioForm(forms.ModelForm):
         }),
     )
 
-    sexo = forms.ChoiceField(
-        label='Sexo',
-        choices=Funcionario.SEXO_CHOICES,
+    
+
+    genero = forms.ModelChoiceField(
+        label='Genero',
+        queryset=Genero.objects.all(),          
         widget=forms.Select(attrs={
             'class': 'form-select',
         }),

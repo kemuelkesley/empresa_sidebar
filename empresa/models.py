@@ -9,21 +9,20 @@ class Cargo(models.Model):
         return self.nome
 
 
+class Genero(models.Model):
+    nome = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.nome
+
 
 
 class Funcionario(models.Model):
 
-    SEXO_CHOICES = (
-        ('E', '---------'),
-        ('M', 'Masculino'),
-        ('F', 'Feminino'),
-        ('O', 'Outros'),
-    )
-
     nome = models.CharField(max_length=100)
     cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE)   
     salario = models.DecimalField(max_digits=10, decimal_places=2)
-    sexo = models.CharField(max_length=1, choices=SEXO_CHOICES)
+    genero = models.ForeignKey(Genero, on_delete=models.CASCADE)
     data_nascimento = models.DateField()
     cpf = models.CharField(max_length=11)
     email = models.EmailField()

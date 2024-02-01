@@ -32,10 +32,10 @@
                                     <th>Data de Nascimento</th>
                                     <th>Telefone</th>
                                     <th>Salario</th>
-                                    <th>Sexo</th>
+                                    <th>Genero</th>
                                     <th>CPF</th>
                                     <th>E-mail</th>
-                                    <th>Ações</th>  
+                                    <!-- <th>Ações</th>   -->
                                 </tr>
                             </thead>
                             <tfoot>
@@ -45,29 +45,25 @@
                                     <th>Data de Nascimento</th>
                                     <th>Telefone</th>
                                     <th>Salario</th>
-                                    <th>Sexo</th>
+                                    <th>Genero</th>
                                     <th>CPF</th>
                                     <th>E-mail</th>
-                                    <th>Ações</th>  
+                                    <!-- <th>Ações</th>   -->
                                 </tr>
                             </tfoot>
                             <tbody>
                                 {% for funcionario in funcionarios %}
                                 <tr>
-                                    <td>{{ funcionario.nome }}</td>
+                                    <td>                                        
+                                        <a href="{% url 'editar_funcionario' id=funcionario.pk %}" class="remover_sublinhado">{{ funcionario.nome }}</a>
+                                    </td>
                                     <td>{{ funcionario.cargo }}</td>
-                                    <td>{{ funcionario.data_nascimento }}</td>                                            
+                                    <td>{{ funcionario.data_nascimento | date:"d/m/Y"}}</td>                                            
                                     <th>{{ funcionario.telefone }}</th>
                                     <td>R$ {{ funcionario.salario }}</td>
-                                    <th>{{ funcionario.sexo }}</th>
+                                    <th>{{ funcionario.genero }}</th>
                                     <th>{{ funcionario.cpf }}</th>
-                                    <th>{{ funcionario.email }}</th>
-                                    {% if funcionario.id %}
-                                        <td>
-                                            <!-- <input class="btn btn-primary" type="button" value="Editar"> -->
-                                            <a href="{% url 'editar_funcionario' id=funcionario.pk %}" class="btn btn-primary">Editar</a>
-                                        </td>
-                                    {% endif %}
+                                    <th>{{ funcionario.email }}</th>                                   
                                 </tr>
                                 {% endfor %}
                             </tbody>
