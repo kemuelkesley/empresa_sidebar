@@ -80,6 +80,66 @@ class FuncionarioForm(forms.ModelForm):
         }),
     )
 
+    cep = forms.CharField(
+        label='CEP',
+        max_length=8,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': '00000-000',
+        }),
+    )
+
+    logradouro = forms.CharField(
+        label='Logradouro',
+        max_length=20,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class':'form-control',
+            'placeholder': 'Informe o logradouro',
+        }),
+    )
+
+    numero = forms.CharField(
+        label='Número',
+        max_length=10,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class':'form-control',
+            'placeholder': 'Informe o número',
+        }),
+    )    
+
+    bairro = forms.CharField(
+        label='Bairro',
+        max_length=20,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class':'form-control',
+            'placeholder': 'Informe o bairro',
+        }),
+    )
+
+    localidade = forms.CharField(
+        label='Localidade',
+        max_length=20,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class':'form-control',
+            'placeholder': 'Informe a localidade',
+        }),
+    )
+
+    uf = forms.CharField(
+        label='UF',
+        max_length=2,
+        required=False,
+        widget=forms.TextInput(attrs={
+            'class':'form-control',
+            'placeholder': 'Informe a UF',
+        })
+    )
+
 
     class Meta:
         model = Funcionario

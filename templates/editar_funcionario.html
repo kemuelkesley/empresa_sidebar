@@ -19,6 +19,12 @@
                     <div class="card-body">
                         <form class=" mx-auto my-4" action="" method="POST">
                             {% csrf_token %}
+
+                            <hr class="border border-primary border-2 opacity-50">
+                            
+                            <div class="mb-3">
+                               <h4><i>Dados Pessoais</i></h4>
+                            </div>
                             
                             <div class="row">
                                 <div class="col-md-6">
@@ -67,6 +73,55 @@
                                     </div>
                                 </div>  
                             </div>
+                            <!-- Endereço -->
+                            <hr class="border border-primary border-2 opacity-50">
+                            
+                            <div class="mb-3">
+                               <h4>Endereço</h4>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="cep">CEP:</label>
+                                        {{ form.cep }}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="logradouro">Logradouro:</label>
+                                        {{ form.logradouro }}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="numero">Número:</label>
+                                        {{ form.numero }}
+                                    </div>
+                                </div>        
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="bairro">Bairro:</label>
+                                        {{ form.bairro }}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="localidade">Localidade:</label>
+                                        {{ form.localidade }}
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="mb-3">
+                                        <label for="uf">UF:</label>
+                                        {{ form.uf }}
+                                    </div>
+                                </div>        
+                            </div>
+
                             
                             <input type="submit" class="btn_test" value="Enviar">
                             

@@ -29,5 +29,14 @@ class Funcionario(models.Model):
     telefone = models.CharField(max_length=11, null=True, blank=True)
     
 
+    #Endereço
+    cep = models.CharField(max_length=8, null=True, blank=True)
+    logradouro = models.CharField(max_length=50, null=True, blank=True)
+    numero = models.CharField(max_length=10, null=True, blank=True)
+    bairro = models.CharField(max_length=50, null=True, blank=True)
+    localidade = models.CharField(max_length=50, null=True, blank=True)
+    uf = models.CharField(max_length=2, null=True, blank=True)
+
+
     def __str__(self):
         return self.nome   
