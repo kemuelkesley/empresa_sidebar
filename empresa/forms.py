@@ -1,5 +1,5 @@
 from django import forms
-from empresa.models import Funcionario, Cargo, Genero
+from empresa.models.funcionario import Funcionario, Cargo, Genero
 
 class FuncionarioForm(forms.ModelForm):
 
@@ -93,7 +93,7 @@ class FuncionarioForm(forms.ModelForm):
 
     logradouro = forms.CharField(
         label='Logradouro',
-        max_length=20,
+        max_length=40,
         required=False,
         widget=forms.TextInput(attrs={
             'class':'form-control',

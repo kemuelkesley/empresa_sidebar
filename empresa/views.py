@@ -1,8 +1,10 @@
 from django.shortcuts import redirect, render
-from empresa.models import Funcionario
+from empresa.models.funcionario import Funcionario
 from empresa.forms import FuncionarioForm
 
 from django.contrib import messages
+
+from empresa.models.produto import Produto
 
 # Create your views here.
 
@@ -47,3 +49,11 @@ def editar_funcionario(request, id):
         messages.error(request, 'Erro ao atualizar funcionário. Verifique os campos.')
 
     return render(request, 'funcionario/editar_funcionario.html', {'form': form, 'funcionario': funcionario})
+
+
+# Produtos
+
+
+def listar_produtos(request):
+    produtos = Produto.objects.all()
+    return render(request, 'produto/lista_produtos.html', {'produtos': produtos})
