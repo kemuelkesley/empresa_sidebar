@@ -27,12 +27,12 @@ def cadastrar_funcionario(request):
     else:
         form = FuncionarioForm()
 
-    return render(request, 'cadastrar_funcionario.html', {'form': form})
+    return render(request, 'funcionario/cadastrar_funcionario.html', {'form': form})
 
 
 def lista_funcionarios(request):
     funcionarios = Funcionario.objects.all()
-    return render(request, 'lista_funcionarios.html', {'funcionarios': funcionarios})
+    return render(request, 'funcionario/lista_funcionarios.html', {'funcionarios': funcionarios})
 
 
 def editar_funcionario(request, id):
@@ -46,4 +46,4 @@ def editar_funcionario(request, id):
     else:
         messages.error(request, 'Erro ao atualizar funcionário. Verifique os campos.')
 
-    return render(request, 'editar_funcionario.html', {'form': form, 'funcionario': funcionario})
+    return render(request, 'funcionario/editar_funcionario.html', {'form': form, 'funcionario': funcionario})
