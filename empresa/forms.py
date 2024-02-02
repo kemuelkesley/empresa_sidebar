@@ -47,6 +47,7 @@ class FuncionarioForm(forms.ModelForm):
     data_nascimento = forms.DateField(
         label='Data de Nascimento',
         widget=forms.DateInput(attrs={
+            'type': 'date',
             'class': 'form-control',
             'placeholder': '00/00/0000',
         }),        

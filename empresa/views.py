@@ -22,6 +22,7 @@ def cadastrar_funcionario(request):
             return redirect('index')
         else:
           messages.error(request, 'Erro ao cadastrar funcionário. Verifique os campos.')
+          print(form.errors.as_data())
     
     else:
         form = FuncionarioForm()

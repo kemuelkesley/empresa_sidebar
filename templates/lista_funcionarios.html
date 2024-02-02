@@ -35,7 +35,7 @@
                                     <th>Genero</th>
                                     <th>CPF</th>
                                     <th>E-mail</th>
-                                    <!-- <th>Ações</th>   -->
+                                    <th>Ações</th>  
                                 </tr>
                             </thead>
                             <tfoot>
@@ -48,7 +48,7 @@
                                     <th>Genero</th>
                                     <th>CPF</th>
                                     <th>E-mail</th>
-                                    <!-- <th>Ações</th>   -->
+                                    <th>Ações</th>  
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -63,7 +63,10 @@
                                     <td>R$ {{ funcionario.salario }}</td>
                                     <th>{{ funcionario.genero }}</th>
                                     <th>{{ funcionario.cpf }}</th>
-                                    <th>{{ funcionario.email }}</th>                                   
+                                    <th>{{ funcionario.email }}</th> 
+                                    <th>
+                                        Editar
+                                    </th>                                  
                                 </tr>
                                 {% endfor %}
                             </tbody>
