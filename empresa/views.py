@@ -4,7 +4,7 @@ from empresa.forms import FuncionarioForm
 
 from django.contrib import messages
 
-from empresa.models.produto import Produto
+from empresa.models.produto import Produto, Categoria
 
 # Create your views here.
 
@@ -54,6 +54,6 @@ def editar_funcionario(request, id):
 # Produtos
 
 
-def listar_produtos(request):
-    produtos = Produto.objects.all()
-    return render(request, 'produto/lista_produtos.html', {'produtos': produtos})
+def listar_categoria(request):
+    categorias = Categoria.objects.all()
+    return render(request, 'produto/categorias.html', {'categorias': categorias})

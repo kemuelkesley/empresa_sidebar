@@ -1,15 +1,15 @@
 {% extends 'partials/base.html' %}
 
-{% block title %}Lista de Produtos - Kem Software{% endblock %}
+{% block title %}Lista de Categorias - Kem Software{% endblock %}
 
 {% block content %}
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Produtos</h1>
+                <h1 class="mt-4">Categorias</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="{%  url 'index' %}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Produtos</li>
+                    <li class="breadcrumb-item active">Categorias</li>
                 </ol>
                 <div class="card mb-4">
                     <div class="card-body">
@@ -21,37 +21,32 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        Lista de Produtos
+                        Lista de Categorias
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" >
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
+                                    <th>Código</th>
                                     <th>Categoria</th>
-                                    <th>Nome</th>
-                                    <th>preço</th>
-                                    <th>Descrição</th>
-                                    <th>Quantidade</th>                                   
+                                    <th>Ações</th>                                   
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>Código</th>
                                     <th>Categoria</th>
-                                    <th>Nome</th>
-                                    <th>preço</th>
-                                    <th>Descrição</th>
-                                    <th>Quantidade</th>                                    
+                                    <th>Ações</th>                               
                                 </tr>
                             </tfoot>
                             <tbody>
-                                {% for produto in produtos %}
-                                <tr>                                   
-                                    <td>{{ produto.categoria}}</td>                                            
-                                    <td>{{ produto.nome }}</td>
-                                    <th>{{ produto.preco }}</th>
-                                    <td>{{ produto.descricao }}</td>
-                                    <th>{{ produto.quantidade }}</th>                                   
+                                {% for categoria in categorias %}
+                                <tr>
+                                    <td>{{ categoria.codigo }}</td>                                   
+                                    <td>{{ categoria.nome }}</td>                                            
+                                    <td><button class="btn btn-primary">Verificar</button></td>                             
                                 </tr>
+                               
                                 {% endfor %}
                             </tbody>
                         </table>

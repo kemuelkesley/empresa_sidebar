@@ -83,15 +83,15 @@
                                     {% comment %} <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a> {% endcomment %}
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Cadastrar</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts">
+                            <div class="sb-sidenav-menu-heading">Estoque</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseCategories" aria-expanded="false" aria-controls="collapseProducts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 Produtos
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="collapseProducts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <div class="collapse" id="collapseCategories" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">                                    
-                                    <a class="nav-link" href="{% url 'listar_produtos' %}">Lista de produtos</a>                                   
+                                    <a class="nav-link" href="{% url 'listar_categoria' %}">Lista de Categorias</a>                                   
                                 </nav>
                             </div>
                            
