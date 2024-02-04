@@ -68,7 +68,8 @@ def filtrar_produtos(request, id):
     categoria = Categoria.objects.get(codigo=id)
     print(f'Categoria: {categoria.nome}')
     produtos = Produto.objects.filter(categoria=categoria)
+    quantidade_produtos = produtos.count()
     print(f'Produtos: {produtos}')
-    return render(request, 'produto/produtos_por_categoria.html', {'categoria': categoria, 'produtos': produtos})
+    return render(request, 'produto/produtos_por_categoria.html', {'categoria': categoria, 'produtos': produtos, 'quantidade_produtos': quantidade_produtos})
 
 

@@ -29,6 +29,7 @@
                                 <tr>
                                     <th>Código</th>
                                     <th>Categoria</th>
+                                    <th>Quantidade de produtos</th>
                                     <th>Ações</th>                                   
                                 </tr>
                             </thead>
@@ -36,6 +37,7 @@
                                 <tr>
                                     <th>Código</th>
                                     <th>Categoria</th>
+                                    <th>Quantidade de produtos</th>
                                     <th>Ações</th>                               
                                 </tr>
                             </tfoot>
@@ -43,7 +45,8 @@
                                 {% for categoria in categorias %}
                                     <tr>
                                         <td>{{ categoria.codigo }}</td>                                   
-                                        <td>{{ categoria.nome }}</td>                                            
+                                        <td>{{ categoria.nome }}</td>   
+                                        <td>{{ categoria.produto_set.count }}</td>                                    
                                         <td><a href="{% url 'filtrar_produtos' id=categoria.codigo %}" class="btn btn-primary">Verificar</a></td>                             
                                     </tr>
                                 {% endfor %}
