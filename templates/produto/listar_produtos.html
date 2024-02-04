@@ -1,15 +1,15 @@
 {% extends 'partials/base.html' %}
 
-{% block title %}Categorias - Kem Software{% endblock %}
+{% block title %}Lista de Produtos - Kem Software{% endblock %}
 
 {% block content %}
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Categorias</h1>
+                <h1 class="mt-4">Produtos</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="{%  url 'index' %}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Categorias</li>
+                    <li class="breadcrumb-item active">Produtos</li>
                 </ol>
                 <div class="card mb-4">
                     <div class="card-body">
@@ -21,31 +21,41 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        Categorias
+                        Produtos
                     </div>
-                    <div class="card-body" style="width: 60%;">
+                    <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
                                     <th>Código</th>
+                                    <th>Nome</th>                               
                                     <th>Categoria</th>
-                                    <th>Ações</th>                                   
+                                    <th>Preço</th>
+                                    <th>Descrição</th>
+                                    <th>Quantidade</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
                                     <th>Código</th>
+                                    <th>Nome</th>                               
                                     <th>Categoria</th>
-                                    <th>Ações</th>                               
+                                    <th>Preço</th>
+                                    <th>Descrição</th>
+                                    <th>Quantidade</th>
                                 </tr>
                             </tfoot>
                             <tbody>
-                                {% for categoria in categorias %}
-                                    <tr>
-                                        <td>{{ categoria.codigo }}</td>                                   
-                                        <td>{{ categoria.nome }}</td>                                            
-                                        <td><a href="{% url 'filtrar_produtos' id=categoria.codigo %}" class="btn btn-primary">Verificar</a></td>                             
-                                    </tr>
+                                {% for produto in produtos %}
+                                <tr>
+                                    <td>{{ produto.codigo }}</td>                                   
+                                    <td>{{ produto.nome }}</td>                                            
+                                    <td>{{ produto.categoria }}</td>
+                                    <td>R$ {{ produto.preco }}</td>
+                                    <td>{{ produto.descricao }}</td>
+                                    <td>{{ produto.quantidade }}</td>                         
+                                </tr>
+                               
                                 {% endfor %}
                             </tbody>
                         </table>

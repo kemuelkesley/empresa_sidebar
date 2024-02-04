@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from empresa.models.funcionario import Funcionario
 from empresa.forms import FuncionarioForm
 
@@ -57,3 +57,18 @@ def editar_funcionario(request, id):
 def listar_categoria(request):
     categorias = Categoria.objects.all()
     return render(request, 'produto/categorias.html', {'categorias': categorias})
+
+
+def listar_produtos(request):
+    produtos = Produto.objects.all()
+    return render(request, 'produto/listar_produtos.html', {'produtos': produtos})
+
+
+def filtrar_produtos(request, id):
+    categoria = Categoria.objects.get(codigo=id)
+    print(f'Categoria: {categoria.nome}')
+    produtos = Produto.objects.filter(categoria=categoria)
+    print(f'Produtos: {produtos}')
+    return render(request, 'produto/produtos_por_categoria.html', {'categoria': categoria, 'produtos': produtos})
+
+
