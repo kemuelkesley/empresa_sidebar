@@ -7,3 +7,11 @@ window.addEventListener('DOMContentLoaded', event => {
         new simpleDatatables.DataTable(datatablesSimple);
     }
 });
+
+
+
+// $('#tabela').DataTable({
+//     "language": {
+//         "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Portuguese-Brasil.json"
+//     }
+// });

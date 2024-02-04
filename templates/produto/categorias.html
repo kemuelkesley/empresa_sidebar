@@ -12,43 +12,37 @@
                     <li class="breadcrumb-item active">Categorias</li>
                 </ol>
                 <div class="card mb-4">
-                    <div class="card-body">
+                    <!-- <div class="card-body">
                         DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
                         <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
                         .
-                    </div>
+                    </div> -->
                 </div>
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
                         Categorias
                     </div>
-                    <div class="card-body" style="width: 60%;">
-                        <table id="datatablesSimple">
-                            <thead>
+                    <div class="card-body">
+                        <table id="tabela" class="table table-hover">
+                            <thead class="table-primary">
                                 <tr>
-                                    <th>Código</th>
-                                    <th>Categoria</th>
-                                    <th>Quantidade de produtos</th>
-                                    <th>Ações</th>                                   
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Categoria</th>
+                                    <th scope="col">Quantidade de produtos</th>
+                                    <th scope="col">Vizualizar</th>                                   
                                 </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>Código</th>
-                                    <th>Categoria</th>
-                                    <th>Quantidade de produtos</th>
-                                    <th>Ações</th>                               
-                                </tr>
-                            </tfoot>
+                            </thead>                            
                             <tbody>
                                 {% for categoria in categorias %}
-                                    <tr>
-                                        <td>{{ categoria.codigo }}</td>                                   
+                                    <tr>                                        
+                                        <td><strong>{{ categoria.codigo }}</strong></td>                                   
                                         <td>{{ categoria.nome }}</td>   
                                         <td>{{ categoria.produto_set.count }}</td>                                    
-                                        <td><a href="{% url 'filtrar_produtos' id=categoria.codigo %}" class="btn btn-primary">Verificar</a></td>                             
-                                    </tr>
+                                        <td>
+                                            <a href="{% url 'filtrar_produtos' id=categoria.codigo %}"><i class="fa-solid fa-pen-to-square fa-spin fa-lg" style="color: #1289e4;"></i></a>
+                                        </td>                             
+                                    </tr>                                   
                                 {% endfor %}
                             </tbody>
                         </table>
@@ -69,4 +63,5 @@
             </div>
         </footer>
     </div>
+    
 {% endblock %}

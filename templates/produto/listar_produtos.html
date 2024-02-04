@@ -12,11 +12,11 @@
                     <li class="breadcrumb-item active">Produtos</li>
                 </ol>
                 <div class="card mb-4">
-                    <div class="card-body">
+                    <!-- <div class="card-body">
                         DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
                         <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
                         .
-                    </div>
+                    </div> -->
                 </div>
                 <div class="card mb-4">
                     <div class="card-header">
@@ -24,31 +24,21 @@
                         Produtos
                     </div>
                     <div class="card-body">
-                        <table id="datatablesSimple">
-                            <thead>
+                        <table id="tabela" class="table table-hover">
+                            <thead class="table-primary">
                                 <tr>
-                                    <th>Código</th>
-                                    <th>Nome</th>                               
-                                    <th>Categoria</th>
-                                    <th>Preço</th>
-                                    <th>Descrição</th>
-                                    <th>Quantidade</th>
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Nome</th>                               
+                                    <th scope="col">Categoria</th>
+                                    <th scope="col">Preço</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Quantidade</th>
                                 </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>Código</th>
-                                    <th>Nome</th>                               
-                                    <th>Categoria</th>
-                                    <th>Preço</th>
-                                    <th>Descrição</th>
-                                    <th>Quantidade</th>
-                                </tr>
-                            </tfoot>
+                            </thead>                          
                             <tbody>
                                 {% for produto in produtos %}
                                 <tr>
-                                    <td>{{ produto.codigo }}</td>                                   
+                                    <td><strong>{{ produto.codigo }}</strong></td>                                   
                                     <td>{{ produto.nome }}</td>                                            
                                     <td>{{ produto.categoria }}</td>
                                     <td>R$ {{ produto.preco }}</td>

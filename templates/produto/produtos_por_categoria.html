@@ -6,7 +6,7 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Produtos por categoria</h1>
+                <h1 class="mt-4">Categoria - {% if categoria %}{{ categoria.nome }}{% endif %}</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="{%  url 'index' %}">Dashboard</a></li>
                     <li class="breadcrumb-item active">Produtos por categoria</li>
@@ -24,18 +24,18 @@
                         Produtos por categoria
                     </div>
                     <div class="card-body">
-                        <table id="datatablesSimple">
-                            <thead>
+                        <table id="tabela" class="table table-hover">
+                            <thead class="table-primary">
                                 <tr>
-                                    <th>Código</th>
-                                    <th>Nome</th>                               
-                                    <th>Categoria</th>
-                                    <th>Preço</th>
-                                    <th>Descrição</th>
-                                    <th>Quantidade</th>                             
+                                    <th scope="col">Código</th>
+                                    <th scope="col">Nome</th>                               
+                                    <th scope="col">Categoria</th>
+                                    <th scope="col">Preço</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Quantidade</th>                             
                                 </tr>
                             </thead>
-                            <tfoot>
+                            <!-- <tfoot>
                                 <tr>
                                     <th>Código</th>
                                     <th>Nome</th>                               
@@ -44,11 +44,11 @@
                                     <th>Descrição</th>
                                     <th>Quantidade</th>                        
                                 </tr>
-                            </tfoot>
+                            </tfoot> -->
                             <tbody>
                                 {% for produto in produtos %}
                                     <tr>
-                                        <td>{{ produto.codigo }}</td>                                   
+                                        <td><strong>{{ produto.codigo }}</strong></td>                                   
                                         <td>{{ produto.nome }}</td>                                            
                                         <td>{{ produto.categoria }}</td>
                                         <td>R$ {{ produto.preco }}</td>
