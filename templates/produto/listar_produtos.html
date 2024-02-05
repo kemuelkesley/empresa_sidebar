@@ -2,6 +2,7 @@
 
 {% block title %}Lista de Produtos - Kem Software{% endblock %}
 
+
 {% block content %}
     <div id="layoutSidenav_content">
         <main>
@@ -13,11 +14,41 @@
                 </ol>
                 <div class="card mb-4">
                     <!-- <div class="card-body">
-                        DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
-                        <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
-                        .
+                        <a href="#" class="btn btn-primary"><i class="fas fa-plus"></i> ADD Produto</a>
                     </div> -->
+                      <!-- Botão para abrir o modal -->
+                      <div class="card-body">
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                               Adicionar Produto <i class="fas fa-plus"></i>
+                          </button>
+                      </div>
                 </div>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog  modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Adicionar Produto</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">                              
+                                <form action="" method="POST" class="">
+                                   
+                                    <label for="">Nome</label>   
+                                    {{ form_product.nome}}
+                                                                      
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button type="button" class="btn btn-primary">Salvar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
@@ -37,15 +68,14 @@
                             </thead>                          
                             <tbody>
                                 {% for produto in produtos %}
-                                <tr>
-                                    <td><strong>{{ produto.codigo }}</strong></td>                                   
-                                    <td>{{ produto.nome }}</td>                                            
-                                    <td>{{ produto.categoria }}</td>
-                                    <td>R$ {{ produto.preco }}</td>
-                                    <td>{{ produto.descricao }}</td>
-                                    <td>{{ produto.quantidade }}</td>                         
-                                </tr>
-                               
+                                    <tr>
+                                        <td><strong>{{ produto.codigo }}</strong></td>                                   
+                                        <td>{{ produto.nome }}</td>                                            
+                                        <td>{{ produto.categoria }}</td>
+                                        <td>R$ {{ produto.preco }}</td>
+                                        <td>{{ produto.descricao }}</td>
+                                        <td>{{ produto.quantidade }}</td>                         
+                                    </tr>
                                 {% endfor %}
                             </tbody>
                         </table>

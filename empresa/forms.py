@@ -1,7 +1,9 @@
 from django import forms
 from empresa.models.funcionario import Funcionario, Cargo, Genero
+from empresa.models.produto import Produto, Categoria
 
 class FuncionarioForm(forms.ModelForm):
+
 
     nome = forms.CharField(        
         label='Nome', 
@@ -145,3 +147,60 @@ class FuncionarioForm(forms.ModelForm):
     class Meta:
         model = Funcionario
         fields = '__all__'
+
+
+
+class ProdutoForm(forms.ModelForm):
+
+    nome = forms.CharField(
+        label='Nome',
+        max_length=60,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Informe o nome do produto',
+        }),
+    )
+
+
+    categoria = forms.ModelChoiceField(
+        label='Categoria',
+        queryset=Categoria.objects.all(),
+        widget=forms.Select(attrs={
+            'class': 'form-select',
+        }),
+    )
+
+    preco = forms.DecimalField(
+        label='Preço',
+        max_digits=10,
+        decimal_places=2,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'R$ 0,00',
+        }),
+    )
+
+    descricao = forms.CharField(
+        label='Descrição',
+        required=True,
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Informe a descrição do produto',
+        }),
+    )
+
+    quantidade = forms.IntegerField(
+        label='Quantidade',
+        required=True,
+        widget=forms.NumberInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Informe a quantidade',
+        }),
+    )
+
+    class Meta:
+        model = Produto
+        fields = '__all__'
+        exclude = ['codigo']

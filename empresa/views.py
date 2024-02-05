@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, redirect, render
 from empresa.models.funcionario import Funcionario
 from empresa.forms import FuncionarioForm
+from empresa.forms import ProdutoForm
 
 from django.contrib import messages
 
@@ -73,3 +74,16 @@ def filtrar_produtos(request, id):
     return render(request, 'produto/produtos_por_categoria.html', {'categoria': categoria, 'produtos': produtos, 'quantidade_produtos': quantidade_produtos})
 
 
+def cadastrar_produto(request):
+    if request.method == 'POST':
+        form_product = ProdutoForm(request.POST)
+        if form_product.is_valid():
+            form_product.save()
+            messages.success(request, 'Produto cadastrado com sucesso.')
+            return redirect('listar_produtos')
+        else:
+            messages.error(request, 'Erro ao cadastrar produto. Verifique os campos.')
+    else:
+        form_product = ProdutoForm()
+
+    return render(request, 'produto/cadastrar_produto.html', {'form_product': form_product})
