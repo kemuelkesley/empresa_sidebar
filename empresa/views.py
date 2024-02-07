@@ -1,7 +1,6 @@
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import redirect, render
 from empresa.models.funcionario import Funcionario
-from empresa.forms import FuncionarioForm
-from empresa.forms import ProdutoForm
+from empresa.forms import FuncionarioForm, ProdutoForm
 
 from django.contrib import messages
 
@@ -62,7 +61,9 @@ def listar_categoria(request):
 
 def listar_produtos(request):
     produtos = Produto.objects.all()
-    return render(request, 'produto/listar_produtos.html', {'produtos': produtos})
+    form_produto = ProdutoForm()
+
+    return render(request, 'produto/listar_produtos.html', {'produtos': produtos, 'form_produto': form_produto})
 
 
 def filtrar_produtos(request, id):
@@ -74,16 +75,9 @@ def filtrar_produtos(request, id):
     return render(request, 'produto/produtos_por_categoria.html', {'categoria': categoria, 'produtos': produtos, 'quantidade_produtos': quantidade_produtos})
 
 
-def cadastrar_produto(request):
-    if request.method == 'POST':
-        form_product = ProdutoForm(request.POST)
-        if form_product.is_valid():
-            form_product.save()
-            messages.success(request, 'Produto cadastrado com sucesso.')
-            return redirect('listar_produtos')
-        else:
-            messages.error(request, 'Erro ao cadastrar produto. Verifique os campos.')
-    else:
-        form_product = ProdutoForm()
+# def cadastrar_produto(request):
+#     form_produto = ProdutoForm()
 
-    return render(request, 'produto/cadastrar_produto.html', {'form_product': form_product})
+#     return render(request, 'produto/listar_produtos.html', {'form_produto': form_produto})
+
+   

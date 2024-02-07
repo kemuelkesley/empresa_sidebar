@@ -155,7 +155,7 @@ class ProdutoForm(forms.ModelForm):
     nome = forms.CharField(
         label='Nome',
         max_length=60,
-        required=True,
+        required=False,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'placeholder': 'Informe o nome do produto',
@@ -175,7 +175,7 @@ class ProdutoForm(forms.ModelForm):
         label='Preço',
         max_digits=10,
         decimal_places=2,
-        required=True,
+        required=False,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'placeholder': 'R$ 0,00',
@@ -184,7 +184,7 @@ class ProdutoForm(forms.ModelForm):
 
     descricao = forms.CharField(
         label='Descrição',
-        required=True,
+        required=False,
         widget=forms.Textarea(attrs={
             'class': 'form-control',
             'placeholder': 'Informe a descrição do produto',
@@ -193,7 +193,7 @@ class ProdutoForm(forms.ModelForm):
 
     quantidade = forms.IntegerField(
         label='Quantidade',
-        required=True,
+        required=False,
         widget=forms.NumberInput(attrs={
             'class': 'form-control',
             'placeholder': 'Informe a quantidade',
