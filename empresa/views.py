@@ -63,6 +63,16 @@ def listar_produtos(request):
     produtos = Produto.objects.all()
     form_produto = ProdutoForm()
 
+    if request.method == 'POST':
+        form_produto = ProdutoForm(request.POST)
+        if form_produto.is_valid():
+            form_produto.save()
+            messages.success(request, 'Produto cadastrado com sucesso.')
+            return redirect('listar_produtos')
+        else:
+            messages.error(request, 'Erro ao cadastrar produto. Verifique os campos.')
+            print(form_produto.errors.as_data())
+
     return render(request, 'produto/listar_produtos.html', {'produtos': produtos, 'form_produto': form_produto})
 
 

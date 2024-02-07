@@ -9,35 +9,40 @@
                 <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="" method="POST">
+                <form id="formProduto" action="" method="POST">
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="">Nome</label>
                         {{ form_produto.nome }}
+                        {{ form_produto.nome.errors }}
                     </div>
                     <div class="mb-3">
                         <label for="">Categoria</label>
                         {{ form_produto.categoria }}
+                        {{ form_produto.categoria.errors }}
                     </div>
                     <div class="mb-3">
                         <label for="">Preço</label>
                         {{ form_produto.preco }}
+                        {{ form_produto.preco.errors }}
                     </div>
                     <div class="mb-3">
                         <label for="">Descrição</label>
                         {{ form_produto.descricao }}
+                        {{ form_produto.descricao.errors }}
                     </div>
                     <div class="mb-3">
                         <label for="">Quantidade</label>
                         {{ form_produto.quantidade }}
+                        {{ form_produto.quantidade.errors }}
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Fechar</button>
-                        <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Salvar</button>
+                        <button type="button" class="btn btn-secondary" data-mdb-ripple-init  data-mdb-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary"  data-mdb-ripple-init>Salvar</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-                                        
+ 

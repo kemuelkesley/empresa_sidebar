@@ -70,5 +70,15 @@
         </footer>
     </div>
     
+    <script>
+        function fecharModalSeValido() {
+            let modal = document.getElementById('exampleModal');
+            let formValido = document.getElementById('formProduto').checkValidity();  // Substitua 'id_do_seu_formulario' pelo ID do seu formulário
+    
+            if (modal && formValido) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
 
 {% endblock %}

@@ -155,7 +155,7 @@ class ProdutoForm(forms.ModelForm):
     nome = forms.CharField(
         label='Nome',
         max_length=60,
-        required=False,
+        required=True,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'placeholder': 'Informe o nome do produto',
@@ -193,7 +193,7 @@ class ProdutoForm(forms.ModelForm):
 
     quantidade = forms.IntegerField(
         label='Quantidade',
-        required=False,
+        required=False,        
         widget=forms.NumberInput(attrs={
             'class': 'form-control',
             'placeholder': 'Informe a quantidade',
