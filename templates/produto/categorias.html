@@ -17,7 +17,16 @@
                         <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
                         .
                     </div> -->
+                    <div class="card-body">
+                        <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#exampleModal">
+                            Adicionar Categoria
+                        </button>
+                   </div>
                 </div>
+
+                {% include "produto/modal_categoria/modal.html" %}
+
+
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
@@ -40,7 +49,7 @@
                                         <td>{{ categoria.nome }}</td>   
                                         <td>{{ categoria.produto_set.count }}</td>                                    
                                         <td>
-                                            <a href="{% url 'filtrar_produtos' id=categoria.codigo %}"><i class="fa-solid fa-pen-to-square fa-lg" style="color: #1289e4;"></i></a>
+                                            <a href="{% url 'filtrar_produtos' id=categoria.codigo %}"><i class="fa-solid fa-pen-to-square  fa-lg" style="color: #1289e4;"></i></a>
                                         </td>                             
                                     </tr>                                   
                                 {% endfor %}

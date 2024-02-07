@@ -204,3 +204,22 @@ class ProdutoForm(forms.ModelForm):
         model = Produto
         fields = '__all__'
         exclude = ['codigo']
+
+
+
+class CategoriaForm(forms.ModelForm):
+
+    nome = forms.CharField(
+        label='Categoria',
+        max_length=50,
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Informe o nome da categoria',
+        }),
+    )
+
+    class Meta:
+        model = Categoria
+        fields = '__all__'
+        exclude = ['codigo']

@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from empresa.models.funcionario import Funcionario
-from empresa.forms import FuncionarioForm, ProdutoForm
+from empresa.forms import FuncionarioForm, ProdutoForm, CategoriaForm
 
 from django.contrib import messages
 
@@ -55,9 +55,18 @@ def editar_funcionario(request, id):
 
 
 def listar_categoria(request):
-    categorias = Categoria.objects.all()
-    return render(request, 'produto/categorias.html', {'categorias': categorias})
+    
+    form_categoria = CategoriaForm()
 
+    if request.method == 'POST':
+        form_categoria = CategoriaForm(request.POST)
+        if form_categoria.is_valid():
+            form_categoria.save()
+            # Talvez adicione uma mensagem de sucesso aqui, se desejar
+            return redirect('listar_categoria')  # Redirecionar após o POST
+
+    categorias = Categoria.objects.all()
+    return render(request, 'produto/categorias.html', {'form_categoria': form_categoria, 'categorias': categorias})
 
 def listar_produtos(request):
     produtos = Produto.objects.all()
