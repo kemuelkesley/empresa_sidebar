@@ -40,7 +40,7 @@
                                         <td>{{ categoria.nome }}</td>   
                                         <td>{{ categoria.produto_set.count }}</td>                                    
                                         <td>
-                                            <a href="{% url 'filtrar_produtos' id=categoria.codigo %}"><i class="fa-solid fa-pen-to-square fa-spin fa-lg" style="color: #1289e4;"></i></a>
+                                            <a href="{% url 'filtrar_produtos' id=categoria.codigo %}"><i class="fa-solid fa-pen-to-square fa-lg" style="color: #1289e4;"></i></a>
                                         </td>                             
                                     </tr>                                   
                                 {% endfor %}
