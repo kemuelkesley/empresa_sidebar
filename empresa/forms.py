@@ -158,7 +158,7 @@ class ProdutoForm(forms.ModelForm):
         required=True,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Informe o nome do produto',
+            'placeholder': 'Nome do produto',
         }),
     )
 
@@ -178,7 +178,7 @@ class ProdutoForm(forms.ModelForm):
         required=False,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'R$ 0,00',
+            'placeholder': 'R$ 0,00',            
         }),
     )
 
@@ -186,6 +186,8 @@ class ProdutoForm(forms.ModelForm):
         label='Descrição',
         required=False,
         widget=forms.Textarea(attrs={
+            'rows': 3,
+            'cols': 20,
             'class': 'form-control',
             'placeholder': 'Informe a descrição do produto',
         }),
@@ -215,7 +217,7 @@ class CategoriaForm(forms.ModelForm):
         required=True,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Informe o nome da categoria',
+            'placeholder': 'Nome da Categoria',
         }),
     )
 
