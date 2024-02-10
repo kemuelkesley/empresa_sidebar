@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from empresa.models.funcionario import Funcionario
 from empresa.forms import FuncionarioForm, ProdutoForm, CategoriaForm
 
@@ -68,6 +68,7 @@ def listar_categoria(request):
     categorias = Categoria.objects.all()
     return render(request, 'produto/categorias.html', {'form_categoria': form_categoria, 'categorias': categorias})
 
+
 def listar_produtos(request):
     produtos = Produto.objects.all()
     form_produto = ProdutoForm()
@@ -85,6 +86,9 @@ def listar_produtos(request):
     return render(request, 'produto/listar_produtos.html', {'produtos': produtos, 'form_produto': form_produto})
 
 
+
+
+
 def filtrar_produtos(request, id):
     categoria = Categoria.objects.get(codigo=id)
     print(f'Categoria: {categoria.nome}')
@@ -94,9 +98,33 @@ def filtrar_produtos(request, id):
     return render(request, 'produto/produtos_por_categoria.html', {'categoria': categoria, 'produtos': produtos, 'quantidade_produtos': quantidade_produtos})
 
 
-# def cadastrar_produto(request):
-#     form_produto = ProdutoForm()
 
-#     return render(request, 'produto/listar_produtos.html', {'form_produto': form_produto})
+def editar_produto(request, produto_id):
+    produto = Produto.objects.get(codigo=produto_id)
+    form = ProdutoForm(request.POST or None, instance=produto)
 
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Produto atualizado com sucesso.')
+        return redirect('listar_produtos')
+    else:
+        messages.error(request, 'Erro ao atualizar produto. Verifique os campos.')
+        
+
+    return render(request, 'produto/editar_produto.html', {'form': form, 'produto': produto})
    
+
+# def editar_produto(request, produto_id):
+#     produto = Produto.objects.get(codigo=produto_id)
+#     form = ProdutoForm(request.POST or None, instance=produto)
+
+#     if request.method == 'POST':
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'Produto atualizado com sucesso.')
+#             return redirect('listar_produtos')
+#         else:
+#             messages.error(request, 'Erro ao atualizar produto. Verifique os campos.')
+
+#     return render(request, 'produto/editar_produto.html', {'form': form, 'produto': produto})
+

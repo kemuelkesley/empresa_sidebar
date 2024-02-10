@@ -1,0 +1,76 @@
+{% extends 'partials/base.html' %}
+
+{% load static %}
+
+
+{% block title %}Editar Produto - Kem Software{% endblock %}
+
+
+{% block content %}
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Editar Produto</h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="{%  url 'index' %}">Dashboard</a></li>
+                <li class="breadcrumb-item active">Editar Produtos</li>
+            </ol>     
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Atualizar Produto
+                </div>
+                <div class="card-body">
+                    <form class=" mx-auto my-4" action="" method="POST">
+                        {% csrf_token %}
+
+                        <hr class="border border-primary border-2 opacity-50">
+                        
+                        <div class="mb-3">
+                           <h4><i>Dados do Produto</i></h4>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="Nome">Nome:</label>
+                                    {{ form.nome }}
+                                </div>
+                
+                                <div class="mb-3">
+                                    <label for="categoria">Categoria:</label>
+                                    {{ form.categoria }}
+                                </div>
+                            </div>
+                
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="preco">Preço:</label>
+                                    {{ form.preco }}
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="quantidade">Quantidade:</label>
+                                    {{ form.quantidade }}
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="descricao">Descricao:</label>
+                                    {{ form.descricao }}
+                               
+                            </div>
+                        </div>
+                        <!-- Endereço -->
+                        <hr class="border border-primary border-2 opacity-50">
+                                              
+                        
+                        <input type="submit" class="btn_test" value="Alterar">
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+{% endblock %}
