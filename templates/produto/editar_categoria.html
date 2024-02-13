@@ -1,0 +1,54 @@
+{% extends 'partials/base.html' %}
+
+{% load static %}
+
+
+{% block title %}Editar Categoria - Kem Software{% endblock %}
+
+
+{% block content %}
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Editar Categoria</h1>
+                <ol class="breadcrumb mb-4">
+                    <li class="breadcrumb-item"><a href="{%  url 'index' %}">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Editar Categoria</li>
+                </ol>     
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Atualizar Categoria
+                    </div>
+                    <div class="card-body">
+                        <form class=" mx-auto my-4" action="" method="POST">
+                            {% csrf_token %}
+
+                            <hr class="border border-primary border-2 opacity-50">
+                            
+                            <div class="mb-3">
+                                <h4><i>Modificar Categoria</i></h4>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="mb-4">
+                                        <label for="Nome">Nome:</label>
+                                        {{ form_categoria.nome }}
+                                    </div>
+                            </div>
+                            
+                            <hr class="border border-primary border-2 opacity-50">
+                            
+                            <div class="">
+                                <input type="submit" class="btn_test" value="Alterar">
+
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock %}

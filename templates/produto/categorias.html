@@ -19,7 +19,7 @@
                     </div> -->
                     <div class="card-body">
                         <button type="button" class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#exampleModal">
-                            Adicionar Categoria
+                            Criar Categoria
                         </button>
                    </div>
                 </div>
@@ -39,7 +39,8 @@
                                     <th scope="col">Código</th>
                                     <th scope="col">Categoria</th>
                                     <th scope="col">Quantidade de produtos</th>
-                                    <th scope="col">Vizualizar</th>                                   
+                                    <th scope="col">Vizualizar</th> 
+                                    <th scope="col">Editar Categoria</th>                                  
                                 </tr>
                             </thead>                            
                             <tbody>
@@ -49,7 +50,14 @@
                                         <td>{{ categoria.nome }}</td>   
                                         <td>{{ categoria.produto_set.count }}</td>                                    
                                         <td>
-                                            <a href="{% url 'filtrar_produtos' id=categoria.codigo %}"><i class="fa-solid fa-pen-to-square  fa-lg" style="color: #1289e4;"></i></a>
+                                            <a href="{% url 'filtrar_produtos' id=categoria.codigo %}">
+                                                <i class="fa-solid fa-list"></i>                                                
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="{% url 'editar_categoria' categoria_id=categoria.codigo %}">
+                                                <i class="fa-solid fa-pen-to-square  fa-lg" style="color: #1289e4;"></i>
+                                            </a>
                                         </td>                             
                                     </tr>                                   
                                 {% endfor %}

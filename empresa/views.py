@@ -87,8 +87,6 @@ def listar_produtos(request):
 
 
 
-
-
 def filtrar_produtos(request, id):
     categoria = Categoria.objects.get(codigo=id)
     print(f'Categoria: {categoria.nome}')
@@ -114,17 +112,16 @@ def editar_produto(request, produto_id):
     return render(request, 'produto/editar_produto.html', {'form': form, 'produto': produto})
    
 
-# def editar_produto(request, produto_id):
-#     produto = Produto.objects.get(codigo=produto_id)
-#     form = ProdutoForm(request.POST or None, instance=produto)
+def editar_categoria(request, categoria_id):
+    categoria = Categoria.objects.get(codigo=categoria_id)
+    form_categoria = CategoriaForm(request.POST or None, instance=categoria)
 
-#     if request.method == 'POST':
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'Produto atualizado com sucesso.')
-#             return redirect('listar_produtos')
-#         else:
-#             messages.error(request, 'Erro ao atualizar produto. Verifique os campos.')
+    if form_categoria.is_valid():
+        form_categoria.save()
+        messages.success(request, 'Categoria atualizada com sucesso.')
+        return redirect('listar_categoria')
+    else:
+        messages.error(request, 'Erro ao atualizar categoria. Verifique os campos.')
+        
 
-#     return render(request, 'produto/editar_produto.html', {'form': form, 'produto': produto})
-
+    return render(request, 'produto/editar_categoria.html', {'form_categoria': form_categoria, 'categoria': categoria})

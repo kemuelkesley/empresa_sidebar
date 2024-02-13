@@ -1,6 +1,6 @@
 from django.urls import path
 from empresa.views import index, lista_funcionarios, cadastrar_funcionario, editar_funcionario
-from empresa.views import listar_categoria, listar_produtos, filtrar_produtos, editar_produto
+from empresa.views import listar_categoria, listar_produtos, filtrar_produtos, editar_produto, editar_categoria
 
 
 
@@ -15,4 +15,5 @@ urlpatterns = [
    path('produtos/', listar_produtos, name='listar_produtos'),
    path('filtrar_produtos/<int:id>/', filtrar_produtos, name='filtrar_produtos'),
    path('editar_produto/editar/<int:produto_id>', editar_produto, name='editar_produto'),
+   path('editar_categoria/editar/<int:categoria_id>', editar_categoria, name='editar_categoria'),
 ]
