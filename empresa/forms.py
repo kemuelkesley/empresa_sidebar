@@ -83,6 +83,28 @@ class FuncionarioForm(forms.ModelForm):
         }),
     )
 
+    data_admissao = forms.DateField(
+        label='Data de Admissão',
+        widget=forms.DateInput(attrs={
+            'type': 'date',
+            'class': 'form-control',
+            'placeholder': '00/00/0000',
+        }),
+    )
+
+
+    data_demissao = forms.DateField(
+        label='Data de Demissão',
+        required=False,
+        widget=forms.DateInput(attrs={
+            'type': 'date',
+            'class': 'form-control',
+            'placeholder': '00/00/0000',
+        }),
+    )
+
+
+
     cep = forms.CharField(
         label='CEP',
         max_length=8,

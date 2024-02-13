@@ -18,7 +18,7 @@ class Genero(models.Model):
 
 
 class Funcionario(models.Model):
-
+    
     nome = models.CharField(max_length=100)
     cargo = models.ForeignKey(Cargo, on_delete=models.CASCADE)   
     salario = models.DecimalField(max_digits=10, decimal_places=2)
@@ -27,7 +27,8 @@ class Funcionario(models.Model):
     cpf = models.CharField(max_length=11)
     email = models.EmailField()
     telefone = models.CharField(max_length=11, null=True, blank=True)
-    
+    data_admissao = models.DateField(null=True, blank=True)
+    data_demissao = models.DateField(null=True, blank=True)
 
     #Endereço
     cep = models.CharField(max_length=8, null=True, blank=True)
