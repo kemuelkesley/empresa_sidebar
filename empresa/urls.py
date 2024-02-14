@@ -8,7 +8,7 @@ from empresa.views import listar_categoria, listar_produtos, filtrar_produtos, e
 urlpatterns = [
    path('', index, name='index'),
    path('funcionarios/', lista_funcionarios, name='lista_funcionarios'),
-   path('cadastrar_funcionario/', cadastrar_funcionario, name='cadastrar_funcionario'),
+   path('cadastrar_funcionario/criar/', cadastrar_funcionario, name='cadastrar_funcionario'),
    path('editar_funcionario/editar/<int:id>', editar_funcionario, name='editar_funcionario'),
    # Produtos
    path('categoria/', listar_categoria, name='listar_categoria'),
