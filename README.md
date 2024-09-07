@@ -71,7 +71,7 @@ git clone https://github.com/kemuelkesley/empresa_sidebar.git
 
 - Activating the environment on Windows:
   ```bash
-  env\Scriptsctivate
+  env\Scripts\ctivate
   ```
 
 - Activating the environment on Linux:
