@@ -4,7 +4,7 @@ Project created to manage employee registration and inventory control.
 
 # Project Name
 
-Employee and Inventory Management System
+enterprise_sidebar
 
 ## Description
 
